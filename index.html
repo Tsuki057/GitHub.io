@@ -1,0 +1,3710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉卡拉上海营业中心 - 智能支付解决方案专家 v3.2.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* v3.2.0 现代科技感蓝紫渐变 */
+            --primary: #4A7CF7;
+            --primary-light: #6A9CFF;
+            --primary-dark: #2D5BD0;
+            --accent: #06B6D4;
+            --accent-light: #22D3EE;
+            --glow-orange: #FF8C42;
+            --glow-cyan: #00E5CC;
+            --cloud-white: #FFFFFF;
+            --bg-light: #F0F4FF;
+            --bg-lighter: #FAFBFF;
+            --text-primary: #1E3A5F;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border: rgba(74, 124, 247, 0.15);
+            --border-light: rgba(106, 156, 255, 0.2);
+            --shadow-sm: 0 2px 4px rgba(45, 91, 208, 0.05);
+            --shadow-md: 0 4px 12px rgba(45, 91, 208, 0.08), 0 2px 4px rgba(45, 91, 208, 0.04);
+            --shadow-lg: 0 10px 25px rgba(45, 91, 208, 0.1), 0 4px 10px rgba(45, 91, 208, 0.05);
+            --shadow-xl: 0 20px 40px rgba(45, 91, 208, 0.12), 0 10px 20px rgba(45, 91, 208, 0.06);
+            --shadow-glow: 0 10px 40px rgba(106, 156, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cloud-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - v3.2.0 */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 250, 252, 0.9);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.08);
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .nav-phone svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Hero Section - Fixed first screen */
+        .hero {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            padding: 80px 24px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* 渐变过渡带 - 连接首屏与次屏 */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent 0%, rgba(239, 246, 255, 0.5) 40%, #f0f9ff 100%);
+            pointer-events: none;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .hero-blob-1 {
+            width: 600px;
+            height: 600px;
+            background: rgba(59, 130, 246, 0.15);
+            top: -200px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(6, 182, 212, 0.12);
+            bottom: -100px;
+            left: -50px;
+        }
+
+        /* 机械粒子装饰 */
+        .hero-particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-particle-1 {
+            top: 20%;
+            left: 3%;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(59, 130, 246, 0.15);
+            border-radius: 50%;
+        }
+
+        .hero-particle-2 {
+            top: 35%;
+            right: 5%;
+            width: 60px;
+            height: 60px;
+            background: rgba(6, 182, 212, 0.08);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .hero-particle-3 {
+            bottom: 25%;
+            left: 8%;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(59, 130, 246, 0.12);
+            transform: rotate(45deg);
+        }
+
+        .hero-particle-4 {
+            bottom: 35%;
+            right: 8%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(6, 182, 212, 0.1);
+            border-radius: 20px;
+            transform: rotate(-15deg);
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        /* Capsule Keywords */
+        .hero-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .keyword-item {
+            padding: 8px 18px;
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .keyword-item:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-feature svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        /* Form Card - 现代科技感蓝紫渐变 */
+        .form-card {
+            background: rgba(255, 255, 255, 0.92);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(45, 91, 208, 0.12);
+            border: 1px solid rgba(106, 156, 255, 0.2);
+            animation: fadeInUp 0.8s ease 0.2s both;
+            max-height: calc(100vh - 160px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Scrollable content area */
+        .form-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px 28px 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-light) transparent;
+        }
+
+        .form-scroll-area::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .form-scroll-area::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .form-scroll-area::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        /* Fixed button area */
+        .form-button-area {
+            padding: 16px 28px 24px;
+            border-top: 1px solid var(--border-light);
+            background: white;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .form-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+
+        .form-header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .form-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .form-benefit {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .form-benefit svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            background: white;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        /* Select with scrolling dropdown */
+        .form-group select[multiple] {
+            height: auto;
+            max-height: 120px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-light) transparent;
+        }
+
+        .form-group select[multiple]::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .form-group select[multiple]::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .form-group select[multiple]::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 8px 24px rgba(45, 91, 208, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px -5px rgba(74, 124, 247, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Form Divider */
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-light);
+        }
+
+        /* Pro Form Link */
+        .pro-form-link {
+            text-align: center;
+            padding: 10px 14px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
+            border: 1px dashed rgba(59, 130, 246, 0.25);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .pro-form-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+        }
+
+        .pro-form-link strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .form-footer svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Success State */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-state.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .success-state h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .success-state p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            z-index: 1001;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.error {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .toast.success {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Clients Section */
+        .clients-section {
+            background: var(--bg-light);
+        }
+
+        .clients-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            opacity: 0.7;
+        }
+
+        .client-logo {
+            width: 120px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .product-icon.purple { background: linear-gradient(135deg, #6C5CE7, #A29BFE); }
+        .product-icon.teal { background: linear-gradient(135deg, #00CEC9, #81ECEC); }
+        .product-icon.pink { background: linear-gradient(135deg, #FD79A8, #FDC4C4); }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .product-tag {
+            padding: 4px 12px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .products-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .products-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .products-more a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Pain Points Section */
+        .pain-section {
+            background: linear-gradient(180deg, var(--bg-light) 0%, white 100%);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .pain-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .pain-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pain-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .pain-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .pain-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .pain-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Cases Section */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .case-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #DBEAFE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .case-content {
+            padding: 24px;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .case-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .case-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .case-result {
+            display: flex;
+            gap: 16px;
+        }
+
+        .case-result-item {
+            text-align: center;
+        }
+
+        .case-result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .case-result-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .cases-more {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cases-more button {
+            padding: 14px 32px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cases-more button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Advantages Section */
+        .advantages-section {
+            background: var(--bg-light);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .advantage-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .advantage-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .advantage-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .advantage-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Shanghai Coverage */
+        .shanghai-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 80px 24px;
+        }
+
+        .shanghai-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .shanghai-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .shanghai-content {
+            flex: 1;
+        }
+
+        .shanghai-emoji {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .shanghai-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .shanghai-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .shanghai-districts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .shanghai-districts {
+                justify-content: center;
+            }
+        }
+
+        .shanghai-district {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .shanghai-map {
+            flex: 1;
+            max-width: 400px;
+            aspect-ratio: 4/3;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .cta-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: var(--shadow-blue);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        .cta-btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .cta-btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-feature svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 24px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 16px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-cert {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-cert svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Feature Section - 现代科技感蓝紫渐变 */
+        .feature-section {
+            padding: 80px 24px 100px;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(106, 156, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(74, 124, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 0% 50%, rgba(0, 229, 204, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(106, 156, 255, 0.08) 0%, rgba(240, 244, 255, 0.5) 30%, #FFFFFF 100%);
+            text-align: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 抽象几何光晕背景 */
+        .feature-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(74, 124, 247, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(106, 156, 255, 0.1) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(0, 229, 204, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 1px 1px, rgba(74, 124, 247, 0.08) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px;
+            pointer-events: none;
+            animation: subtleFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 2%); }
+        }
+
+        /* 顶部渐变衔接带 */
+        .feature-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(240, 244, 255, 0.98) 0%, rgba(240, 244, 255, 0.5) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* 抽象几何装饰元素 */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .feature-section > .particle-1 {
+            top: 20%;
+            left: 8%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(106, 156, 255, 0.15);
+            border-radius: 50%;
+            animation: rotateSlow 30s linear infinite;
+        }
+
+        .feature-section > .particle-2 {
+            top: 35%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(0, 229, 204, 0.05));
+            transform: rotate(45deg);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: rotateSlow 25s linear infinite reverse;
+        }
+
+        .feature-section > .particle-3 {
+            bottom: 25%;
+            left: 12%;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 140, 66, 0.06);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            transform: rotate(30deg);
+        }
+
+        .feature-section > .particle-4 {
+            bottom: 35%;
+            right: 5%;
+            width: 140px;
+            height: 140px;
+            border: 1px solid rgba(74, 124, 247, 0.1);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            transform: rotate(-15deg);
+            animation: rotateSlow 40s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .showcase-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-section .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* 玻璃拟态卡片 */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.88);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(106, 156, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 24px;
+            box-shadow:
+                0 12px 40px rgba(45, 91, 208, 0.1),
+                0 0 0 1px rgba(106, 156, 255, 0.1) inset,
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s cubic-bezier(0.17, 0.67, 0.88, 1.01);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 25px 50px rgba(45, 91, 208, 0.15),
+                0 0 0 1px rgba(106, 156, 255, 0.25) inset,
+                0 0 30px rgba(106, 156, 255, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-card .icon {
+            margin: 0 auto 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 16px 0 8px;
+        }
+
+        .feature-card .feature-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .feature-card ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            color: #4b5563;
+            position: relative;
+            padding-left: 24px;
+            font-size: 0.95rem;
+        }
+
+        .feature-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+        }
+
+        .feature-card ul li .bullet {
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+        }
+
+        /* Stats Banner - 现代科技感蓝紫渐变 */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+            color: white;
+            max-width: 1160px;
+            box-shadow: 0 20px 50px rgba(45, 91, 208, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background:
+                radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(106, 156, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 32px;
+                margin: 40px 20px;
+            }
+        }
+
+        .stats-item h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .stats-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Case Study Section - 现代科技感蓝紫渐变 */
+        .case-study-section {
+            padding: 80px 24px 100px;
+            background:
+                radial-gradient(ellipse 100% 60% at 30% 20%, rgba(74, 124, 247, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 50% at 70% 80%, rgba(106, 156, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 100% 30%, rgba(0, 229, 204, 0.04) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(240, 244, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 抽象几何光晕背景 */
+        .case-study-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            right: -30%;
+            bottom: -30%;
+            background:
+                radial-gradient(circle at 25% 25%, rgba(74, 124, 247, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 75% 75%, rgba(106, 156, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 90% 10%, rgba(255, 140, 66, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 1px 1px, rgba(74, 124, 247, 0.06) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 35px 35px;
+            pointer-events: none;
+            animation: subtleFloat 25s ease-in-out infinite;
+        }
+
+        /* 顶部渐变衔接带 */
+        .case-study-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(240, 244, 255, 0.95) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* 抽象几何装饰元素 */
+        .case-study-section .particle-1 {
+            position: absolute;
+            top: 18%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(106, 156, 255, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 35s linear infinite;
+        }
+
+        .case-study-section .particle-2 {
+            position: absolute;
+            top: 45%;
+            right: 8%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(74, 124, 247, 0.06), rgba(0, 229, 204, 0.04));
+            transform: rotate(30deg);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 28s linear infinite reverse;
+        }
+
+        .case-study-section .particle-3 {
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgba(255, 140, 66, 0.08);
+            border-radius: 15px;
+            transform: rotate(-20deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .case-study-section .particle-4 {
+            position: absolute;
+            bottom: 30%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(74, 124, 247, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 40s linear infinite;
+        }
+
+        .case-studies-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .case-study-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-study-section .subtitle {
+            font-size: 1.3rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 70px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .case-card {
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 12px 40px rgba(45, 91, 208, 0.1);
+            transition: all 0.4s cubic-bezier(0.17, 0.67, 0.88, 1.01);
+            text-align: center;
+            border: 1px solid rgba(106, 156, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(45, 91, 208, 0.15), 0 0 0 1px rgba(106, 156, 255, 0.25) inset;
+        }
+
+        .case-card .case-icon {
+            margin: 0 auto 25px;
+        }
+
+        .case-card .case-icon img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .case-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0 10px;
+        }
+
+        .case-card .case-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .case-card .case-point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .case-card .case-point-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .case-card .case-result {
+            background: rgba(106, 156, 255, 0.08);
+            border: 1px solid rgba(106, 156, 255, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .case-card .case-result-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .case-card .case-result-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-section {
+            margin-top: 80px;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.92);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(106, 156, 255, 0.2);
+            box-shadow: 0 16px 48px rgba(45, 91, 208, 0.08);
+        }
+
+        .testimonial-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .testimonial-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-label {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .case-studies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Data Empowerment Section - 现代科技感蓝紫渐变 */
+        .data-empowerment-section {
+            padding: 80px 24px 100px;
+            background:
+                radial-gradient(ellipse 90% 50% at 60% 10%, rgba(106, 156, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 40% at 20% 80%, rgba(74, 124, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 80% 60%, rgba(0, 229, 204, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(240, 244, 255, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
+            color: var(--primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 抽象几何光晕背景 */
+        .data-empowerment-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -40%;
+            right: -40%;
+            bottom: -40%;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(74, 124, 247, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(106, 156, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(0, 229, 204, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 1px 1px, rgba(74, 124, 247, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+            pointer-events: none;
+            animation: subtleFloat 22s ease-in-out infinite reverse;
+        }
+
+        /* 顶部渐变衔接带 */
+        .data-empowerment-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(240, 244, 255, 0.95) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* 抽象几何装饰元素 */
+        .data-empowerment-section .particle-1 {
+            position: absolute;
+            top: 15%;
+            right: 6%;
+            width: 180px;
+            height: 180px;
+            border: 2px solid rgba(106, 156, 255, 0.1);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 45s linear infinite;
+        }
+
+        .data-empowerment-section .particle-2 {
+            position: absolute;
+            bottom: 25%;
+            left: 8%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(74, 124, 247, 0.06), rgba(0, 229, 204, 0.04));
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 32s linear infinite;
+        }
+
+        .data-empowerment-section .particle-3 {
+            position: absolute;
+            top: 40%;
+            left: 12%;
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(255, 140, 66, 0.06);
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .data-empowerment-section .particle-4 {
+            position: absolute;
+            bottom: 35%;
+            right: 8%;
+            width: 90px;
+            height: 90px;
+            background: rgba(106, 156, 255, 0.06);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 30s linear infinite reverse;
+        }
+
+        .data-empowerment-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .data-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .data-title-lakala {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            position: relative;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .data-title-underline {
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .data-title-divider {
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, rgba(106, 156, 255, 0.5), transparent);
+        }
+
+        .data-title-sub {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .data-title-sub-underline {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+            opacity: 0.6;
+        }
+
+        .data-core-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .data-core-title h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0;
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .data-core-title p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 16px auto 0;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Central Ring Layout */
+        .data-flow-canvas {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .industry-channel {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 140px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .industry-channel-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .industry-channel-num {
+            width: 20px;
+            height: 20px;
+            background: rgba(96, 165, 250, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+        }
+
+        .industry-item {
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 8px;
+            border-left: 3px solid;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(45, 91, 208, 0.06);
+            color: var(--primary);
+        }
+
+        .industry-item:hover {
+            background: rgba(106, 156, 255, 0.1);
+            transform: translateX(4px);
+        }
+
+        .data-main-channel {
+            margin: 0 160px;
+            position: relative;
+        }
+
+        .data-flow-path {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom,
+                #3b82f6 0%,
+                #10b981 33%,
+                #f59e0b 66%,
+                #8b5cf6 100%);
+            opacity: 0.5;
+            border-radius: 1px;
+        }
+
+        .stage-node {
+            position: relative;
+            padding: 20px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stage-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            border-radius: 10px;
+            padding: 8px 16px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .stage-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .stage-1 .stage-num { background: #3b82f6; }
+        .stage-2 .stage-num { background: #10b981; }
+        .stage-3 .stage-num { background: #f59e0b; }
+        .stage-4 .stage-num { background: #8b5cf6; }
+
+        .stage-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .stage-1 .stage-name {
+            background: linear-gradient(90deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stage-2 .stage-name {
+            background: linear-gradient(90deg, #34d399, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stage-3 .stage-name {
+            background: linear-gradient(90deg, #f59e0b, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stage-4 .stage-name {
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stage-cards {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .data-card {
+            background: rgba(255, 255, 255, 0.92);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-radius: 8px;
+            padding: 10px 14px;
+            border: 1px solid rgba(106, 156, 255, 0.15);
+            transition: all 0.3s ease;
+            min-width: 140px;
+            box-shadow: 0 4px 20px rgba(45, 91, 208, 0.06);
+        }
+
+        .data-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(45, 91, 208, 0.1), 0 0 0 1px rgba(106, 156, 255, 0.2);
+        }
+
+        .data-card > div:first-child {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .data-card > div:last-child {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .tech-foundation {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(59, 130, 246, 0.15);
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+        }
+
+        .tech-item {
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .tech-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .tech-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .institution-outlet {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 140px;
+            text-align: center;
+        }
+
+        .institution-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(106, 156, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px 16px;
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(45, 91, 208, 0.08);
+        }
+
+        .institution-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .institution-name {
+            font-size: 1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .institution-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .value-statement {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(106, 156, 255, 0.15);
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .value-statement span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes flowDown {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        .stage-node {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .stage-node.stage-1 { animation-delay: 0.1s; }
+        .stage-node.stage-2 { animation-delay: 0.3s; }
+        .stage-node.stage-3 { animation-delay: 0.5s; }
+        .stage-node.stage-4 { animation-delay: 0.7s; }
+
+        .data-flow-path {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .industry-item {
+            opacity: 0;
+            animation: fadeInLeft 0.5s ease forwards;
+        }
+
+        .industry-item:nth-child(2) { animation-delay: 0.2s; }
+        .industry-item:nth-child(3) { animation-delay: 0.3s; }
+        .industry-item:nth-child(4) { animation-delay: 0.4s; }
+        .industry-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @media (max-width: 1024px) {
+            .industry-channel {
+                position: relative;
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                transform: none;
+                top: auto;
+                left: auto;
+                justify-content: center;
+                gap: 12px;
+                padding: 0 10px;
+                margin-bottom: 20px;
+            }
+
+            .industry-channel-header {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 4px;
+            }
+
+            .industry-item {
+                flex: 0 0 auto;
+                min-width: 100px;
+                max-width: 160px;
+                padding: 8px 12px;
+                font-size: 0.75rem;
+            }
+
+            .data-main-channel {
+                margin: 0;
+                padding-left: 0;
+            }
+
+            .data-flow-path {
+                display: none;
+            }
+
+            .stage-node {
+                padding: 16px 0;
+                text-align: center;
+            }
+
+            .stage-badge {
+                margin-left: 0;
+            }
+
+            .stage-cards {
+                margin-left: 0;
+                max-width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .data-card {
+                min-width: 120px;
+                flex: 0 1 auto;
+            }
+
+            .institution-outlet {
+                position: relative;
+                width: 100%;
+                transform: none;
+                top: auto;
+                right: auto;
+                margin-top: 30px;
+            }
+
+            .tech-foundation {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 24px;
+                justify-content: center;
+            }
+
+            .tech-item {
+                min-width: 140px;
+            }
+
+            .data-title-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .data-title-divider {
+                display: none;
+            }
+
+            .data-core-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .data-core-title p {
+                font-size: 1rem;
+            }
+        }
+                gap: 16px;
+                text-align: center;
+            }
+
+            .data-title-divider {
+                display: none;
+            }
+
+            .data-core-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stage-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .data-card {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .data-core-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .data-core-title p {
+                font-size: 0.9rem;
+            }
+
+            .industry-item {
+                padding: 8px 10px;
+                font-size: 0.7rem;
+            }
+
+            .tech-item {
+                min-width: 120px;
+            }
+        }
+
+        /* Industry Solutions */
+        .industry-section {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            margin: 0 20px 60px;
+            max-width: 1160px;
+        }
+
+        .industry-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .industry-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .industry-header p {
+            color: var(--text-secondary);
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .industry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .industry-card {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--bg-light);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .industry-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .industry-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Industry Solution Section - 现代科技感蓝紫渐变 */
+        .industry-solution-section {
+            padding: 80px 24px 100px;
+            background:
+                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(106, 156, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 40% at 20% 100%, rgba(74, 124, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 35% at 90% 50%, rgba(0, 229, 204, 0.04) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(240, 244, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+            color: var(--primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 抽象几何光晕背景 */
+        .industry-solution-section::before {
+            content: '';
+            position: absolute;
+            top: -35%;
+            left: -35%;
+            right: -35%;
+            bottom: -35%;
+            background:
+                radial-gradient(circle at 20% 40%, rgba(74, 124, 247, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(106, 156, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 60% 20%, rgba(255, 140, 66, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 1px 1px, rgba(74, 124, 247, 0.06) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 38px 38px;
+            pointer-events: none;
+            animation: subtleFloat 28s ease-in-out infinite;
+        }
+
+        /* 顶部渐变衔接带 */
+        .industry-solution-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(240, 244, 255, 0.95) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* 抽象几何装饰元素 */
+        .industry-solution-section .particle-1 {
+            position: absolute;
+            top: 12%;
+            left: 6%;
+            width: 130px;
+            height: 130px;
+            border: 2px solid rgba(106, 156, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 38s linear infinite;
+        }
+
+        .industry-solution-section .particle-2 {
+            position: absolute;
+            top: 35%;
+            right: 8%;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(74, 124, 247, 0.06), rgba(0, 229, 204, 0.04));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            transform: rotate(20deg);
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 32s linear infinite reverse;
+        }
+
+        .industry-solution-section .particle-3 {
+            position: absolute;
+            bottom: 22%;
+            left: 8%;
+            width: 85px;
+            height: 85px;
+            border: 1px solid rgba(255, 140, 66, 0.06);
+            border-radius: 15px;
+            transform: rotate(-12deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .industry-solution-section .particle-4 {
+            position: absolute;
+            bottom: 30%;
+            right: 5%;
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(74, 124, 247, 0.06);
+            border-radius: 50% 20% 50% 20%;
+            pointer-events: none;
+            z-index: 1;
+            animation: rotateSlow 42s linear infinite;
+        }
+
+        .industry-solution-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .industry-solution-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .industry-solution-header h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0;
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .industry-solution-header p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            font-weight: 400;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .solution-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(45, 91, 208, 0.15);
+        }
+
+        .solution-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.85) contrast(1.05);
+        }
+
+        .solution-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
+            padding: 24px;
+            color: white;
+        }
+
+        .solution-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .solution-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .capability-item {
+            background: rgba(255, 255, 255, 0.88);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(106, 156, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.17, 0.67, 0.88, 1.01);
+            box-shadow: 0 8px 32px rgba(45, 91, 208, 0.08);
+        }
+
+        .capability-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 16px 48px rgba(45, 91, 208, 0.12), 0 0 0 1px rgba(106, 156, 255, 0.2) inset;
+        }
+
+        .capability-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .capability-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .capability-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .industry-cta {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            padding: 16px 48px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(45, 91, 208, 0.35);
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 15px 35px rgba(74, 124, 247, 0.45);
+        }
+
+        .industry-cta > p {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .solution-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            margin: 0 20px 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 24px;
+            padding: 60px 48px;
+            text-align: center;
+            color: white;
+            max-width: 1160px;
+        }
+
+        .cta-banner h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 32px;
+        }
+
+        .cta-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: white;
+            color: var(--primary);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-banner-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Bottom CTA - 现代科技感蓝紫渐变 */
+        .bottom-cta {
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 50%, rgba(106, 156, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(240, 244, 255, 0.8) 0%, #FFFFFF 100%);
+            color: var(--primary);
+        }
+
+        .bottom-cta h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .bottom-cta p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer - 现代科技感蓝紫渐变 */
+        .mini-footer {
+            text-align: center;
+            padding: 40px 24px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .mini-footer p {
+            margin-bottom: 8px;
+        }
+
+        .mini-footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 16px;
+                min-height: unset;
+            }
+
+            .hero::after {
+                height: 80px;
+            }
+
+            .section {
+                padding: 60px 16px;
+            }
+
+            .feature-section,
+            .case-study-section,
+            .data-empowerment-section,
+            .industry-solution-section {
+                padding: 40px 16px 60px;
+            }
+
+            .feature-section::before,
+            .case-study-section::before,
+            .data-empowerment-section::before,
+            .industry-solution-section::before {
+                height: 40px;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .hero-feature {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-particle hero-particle-1"></div>
+        <div class="hero-particle hero-particle-2"></div>
+        <div class="hero-particle hero-particle-3"></div>
+        <div class="hero-particle hero-particle-4"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">官方直营 · 央行支付牌照</div>
+                <h1 class="hero-title">专业支付解决方案<br>助力企业增长</h1>
+                <p class="hero-subtitle">为平台型企业和商户打造安全、稳定、高可用的支付系统，支持API对接多种业务场景</p>
+
+                <!-- Capsule Keywords -->
+                <div class="hero-keywords">
+                    <span class="keyword-item">聚合收银台</span>
+                    <span class="keyword-item">专业扫码</span>
+                    <span class="keyword-item">智能分账</span>
+                    <span class="keyword-item">API接口</span>
+                    <span class="keyword-item">T+1结算</span>
+                    <span class="keyword-item">多渠道聚合</span>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">10000+</span>
+                        <span class="hero-stat-label">服务企业</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">99.98%</span>
+                        <span class="hero-stat-label">支付成功率</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">T+1</span>
+                        <span class="hero-stat-label">资金结算</span>
+                    </div>
+                </div>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        银行级安全保障
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        秒级到账
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        7×24小时专属服务
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        银联认证
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        PCI DSS认证
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="form-scroll-area">
+                    <div class="form-header">
+                        <h3>⚡ 2分钟获取专属方案</h3>
+                        <p>填写基础信息，立即获得：</p>
+                    </div>
+
+                    <div class="form-benefits">
+                        <div class="form-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            个性化费率方案
+                        </div>
+                        <div class="form-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            3个同行业案例
+                        </div>
+                        <div class="form-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            15分钟免费咨询
+                        </div>
+                    </div>
+
+                    <form id="mainForm" onsubmit="submitForm(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>您的姓名 *</label>
+                                <input type="text" name="name" placeholder="您怎么称呼？" required>
+                            </div>
+                            <div class="form-group">
+                                <label>联系电话 *</label>
+                                <input type="tel" name="phone" placeholder="仅用于对接" required pattern="^1[3-9]\d{9}$">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>公司名称 *</label>
+                            <input type="text" name="company" placeholder="请输入公司全称" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>您的职位</label>
+                            <select name="position" title="请选择您的职位">
+                                <option value="">请选择</option>
+                                <option value="老板/法人">老板/法人</option>
+                                <option value="运营">运营</option>
+                                <option value="财务">财务</option>
+                                <option value="技术">技术</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>业务模式 *</label>
+                            <select name="businessMode" title="请选择业务模式" required>
+                                <option value="">请选择</option>
+                                <option value="线下实体门店">线下实体门店</option>
+                                <option value="电商（抖音/天猫/京东/独立站）">电商（抖音/天猫/京东/独立站）</option>
+                                <option value="平台型商户（撮合/分账）">平台型商户（撮合/分账）</option>
+                                <option value="SaaS服务商/系统商">SaaS服务商/系统商</option>
+                                <option value="本地生活（餐饮/丽人/到店）">本地生活（餐饮/丽人/到店）</option>
+                                <option value="数字/虚拟商品">数字/虚拟商品</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>支付载体 *</label>
+                            <select name="paymentCarrier" title="请选择支付载体" required>
+                                <option value="">请选择</option>
+                                <option value="微信小程序/公众号">微信小程序/公众号</option>
+                                <option value="H5/网页支付">H5/网页支付</option>
+                                <option value="线下扫码收款/POS机">线下扫码收款/POS机</option>
+                                <option value="抖音/小红书小店">抖音/小红书小店</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>所属行业</label>
+                            <select name="industry" title="请选择所属行业">
+                                <option value="">请选择</option>
+                                <option value="餐饮娱乐">餐饮娱乐</option>
+                                <option value="商超零售">商超零售</option>
+                                <option value="交通出行">交通出行</option>
+                                <option value="汽车行业">汽车行业</option>
+                                <option value="酒店旅游">酒店旅游</option>
+                                <option value="教育医疗">教育医疗</option>
+                                <option value="金融服务">金融服务</option>
+                                <option value="房地产建筑">房地产建筑</option>
+                                <option value="通讯科技">通讯科技</option>
+                                <option value="生产制造">生产制造</option>
+                                <option value="文化传媒">文化传媒</option>
+                                <option value="专业服务">专业服务</option>
+                                <option value="农林牧渔">农林牧渔</option>
+                                <option value="电力能源">电力能源</option>
+                                <option value="环保水利">环保水利</option>
+                                <option value="政府公共">政府公共</option>
+                                <option value="其他服务">其他服务</option>
+                                <option value="物流仓储">物流仓储</option>
+                                <option value="休闲娱乐">休闲娱乐</option>
+                                <option value="体育健身">体育健身</option>
+                                <option value="美容美发">美容美发</option>
+                                <option value="家居生活">家居生活</option>
+                                <option value="服装纺织">服装纺织</option>
+                                <option value="食品饮料">食品饮料</option>
+                                <option value="医药健康">医药健康</option>
+                                <option value="机械设备">机械设备</option>
+                                <option value="五金建材">五金建材</option>
+                                <option value="电子电器">电子电器</option>
+                                <option value="信息服务">信息服务</option>
+                                <option value="金融保险">金融保险</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>其他需求</label>
+                            <input type="text" name="requirements" placeholder="您的特殊需求：分账……">
+                        </div>
+                    </form>
+
+                    <div class="form-divider">or</div>
+
+                    <div class="pro-form-link" onclick="switchToProForm()">
+                        需要完整方案？<strong>填写专业表单</strong>，获得更精准的服务
+                    </div>
+
+                    <div class="success-state" id="formSuccess">
+                        <div class="success-icon">✓</div>
+                        <h4>提交成功！</h4>
+                        <p>我们的BD将在24小时内联系您，请保持手机畅通</p>
+                    </div>
+                </div>
+
+                <div class="form-button-area">
+                    <button type="submit" class="submit-btn" id="submitBtn" form="mainForm">
+                        立即获取方案
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+
+                    <div class="form-footer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        信息仅用于提供精准方案，24小时内专人联系
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fifth Screen: Industry Solution Section -->
+    <section class="industry-solution-section">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="industry-solution-inner">
+            <!-- Main Title -->
+            <div class="industry-solution-header">
+                <h2>拉卡拉开放平台</h2>
+                <p>行业数字支付解决方案</p>
+            </div>
+
+            <!-- Four Solution Cards -->
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="solution-overlay">
+                        <div class="solution-title">能源零售</div>
+                        <div class="solution-desc">加油站数字收银台 + 会员积分系统</div>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="solution-overlay">
+                        <div class="solution-title">新能源出行</div>
+                        <div class="solution-desc">充电桩扫码即充 + 分账结算后台</div>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background-image: url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="solution-overlay">
+                        <div class="solution-title">餐饮娱乐</div>
+                        <div class="solution-desc">扫码点餐+聚合支付+会员营销一体化</div>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="solution-overlay">
+                        <div class="solution-title">企业服务</div>
+                        <div class="solution-desc">B2B分账系统 + 对公收款 + 资金归集</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Four Capability Modules -->
+            <div class="capability-grid">
+                <div class="capability-item" style="border-color: rgba(96, 165, 250, 0.2);">
+                    <div class="capability-header">
+                        <div class="capability-icon" style="background: linear-gradient(135deg, #60a5fa, #34d399);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="capability-title" style="background: linear-gradient(90deg, #60a5fa, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">一站式入驻</h3>
+                    </div>
+                    <p>应用开通｜简单配置｜上手即用</p>
+                </div>
+                <div class="capability-item" style="border-color: rgba(16, 185, 129, 0.2);">
+                    <div class="capability-header">
+                        <div class="capability-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12.7 5.16-1.96 9-7.15 9-12.7V7l-10-5z" stroke="white" stroke-width="2"/>
+                                <path d="M8 12H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 8V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="capability-title" style="background: linear-gradient(90deg, #34d399, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">低代码接入</h3>
+                    </div>
+                    <p>缩短开发周期｜提高使用体验｜开放各种能力<br>降低开发成本｜快速生产上线｜统一接入方式</p>
+                </div>
+                <div class="capability-item" style="border-color: rgba(245, 158, 11, 0.2);">
+                    <div class="capability-header">
+                        <div class="capability-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="capability-title" style="background: linear-gradient(90deg, #f59e0b, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">行业化定制</h3>
+                    </div>
+                    <p>餐饮娱乐｜旅游出行｜线下零售｜汽车｜大健康｜仓储物流</p>
+                </div>
+                <div class="capability-item" style="border-color: rgba(139, 92, 246, 0.2);">
+                    <div class="capability-header">
+                        <div class="capability-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="capability-title" style="background: linear-gradient(90deg, #8b5cf6, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">管家式运营</h3>
+                    </div>
+                    <p>便捷对账｜数据报表｜经营分析</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section class="feature-section">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="showcase-inner">
+            <div class="showcase-header">
+                <h2>为什么企业选择我们？</h2>
+                <p>一站式支付与资金管理平台，助力企业降本增效</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- 左栏：全链路支付接入 - 多设备连接中央网关 -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 几何背景 -->
+                            <rect x="10" y="10" width="60" height="60" rx="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
+                            <!-- 六边形网格粒子 -->
+                            <polygon points="40,16 52,24 52,40 40,48 28,40 28,24" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.3"/>
+                            <polygon points="40,28 48,33 48,43 40,48 32,43 32,33" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
+                            <!-- 中央核心 -->
+                            <circle cx="40" cy="38" r="8" fill="#3B82F6"/>
+                            <circle cx="40" cy="38" r="4" fill="white"/>
+                            <!-- 连接线 -->
+                            <path d="M40 30 L40 20" stroke="#3B82F6" stroke-width="2"/>
+                            <path d="M40 46 L40 56" stroke="#3B82F6" stroke-width="2"/>
+                            <path d="M32 38 L24 38" stroke="#3B82F6" stroke-width="2"/>
+                            <path d="M48 38 L56 38" stroke="#3B82F6" stroke-width="2"/>
+                            <!-- 机械节点 -->
+                            <rect x="36" y="16" width="8" height="8" rx="2" fill="#06B6D4"/>
+                            <rect x="36" y="56" width="8" height="8" rx="2" fill="#06B6D4"/>
+                            <rect x="20" y="34" width="8" height="8" rx="2" fill="#3B82F6"/>
+                            <rect x="52" y="34" width="8" height="8" rx="2" fill="#3B82F6"/>
+                            <!-- 粒子 -->
+                            <circle cx="28" cy="24" r="2" fill="#3B82F6" opacity="0.6"/>
+                            <circle cx="52" cy="24" r="2" fill="#3B82F6" opacity="0.6"/>
+                            <circle cx="28" cy="52" r="2" fill="#06B6D4" opacity="0.6"/>
+                            <circle cx="52" cy="52" r="2" fill="#06B6D4" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>全链路支付接入</h3>
+                    <p class="feature-desc">告别漫长开发，轻松上线支付系统
+                    <ul>
+                        <li><span class="bullet"></span>行业专家1v1定制方案</li>
+                        <li><span class="bullet"></span>支持微信/支付宝/银联/H5/小程序等全渠道</li>
+                        <li><span class="bullet"></span>无缝对接ERP、CRM系统</li>
+                    </ul>
+                </div>
+
+                <!-- 中栏：智能资金管理 - 数字货币流动+数据分析仪表盘 -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 几何背景 -->
+                            <rect x="10" y="10" width="60" height="60" rx="12" fill="#E0F2FE" stroke="#06B6D4" stroke-width="1"/>
+                            <!-- 网格线 -->
+                            <line x1="10" y1="30" x2="70" y2="30" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="10" y1="50" x2="70" y2="50" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="30" y1="10" x2="30" y2="70" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="50" y1="10" x2="50" y2="70" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
+                            <!-- 仪表盘 -->
+                            <rect x="20" y="24" width="40" height="32" rx="4" fill="white" stroke="#3B82F6" stroke-width="1.5"/>
+                            <!-- 仪表盘刻度 -->
+                            <line x1="26" y1="30" x2="26" y2="34" stroke="#3B82F6" stroke-width="1"/>
+                            <line x1="34" y1="30" x2="34" y2="34" stroke="#3B82F6" stroke-width="1"/>
+                            <line x1="42" y1="30" x2="42" y2="34" stroke="#06B6D4" stroke-width="1.5"/>
+                            <line x1="50" y1="30" x2="50" y2="34" stroke="#3B82F6" stroke-width="1"/>
+                            <!-- 柱状图 -->
+                            <rect x="26" y="42" width="6" height="10" rx="1" fill="#3B82F6"/>
+                            <rect x="34" y="38" width="6" height="14" rx="1" fill="#3B82F6"/>
+                            <rect x="42" y="34" width="6" height="18" rx="1" fill="#06B6D4"/>
+                            <rect x="50" y="40" width="6" height="12" rx="1" fill="#3B82F6"/>
+                            <!-- 货币符号 -->
+                            <circle cx="56" cy="22" r="6" fill="#3B82F6"/>
+                            <text x="56" y="25" font-size="7" fill="white" text-anchor="middle" font-weight="bold">¥</text>
+                            <!-- 装饰粒子 -->
+                            <circle cx="16" cy="16" r="2" fill="#06B6D4" opacity="0.5"/>
+                            <circle cx="64" cy="16" r="2" fill="#06B6D4" opacity="0.5"/>
+                            <circle cx="16" cy="64" r="2" fill="#3B82F6" opacity="0.5"/>
+                            <circle cx="64" cy="64" r="2" fill="#3B82F6" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3>智能资金管理</h3>
+                    <p class="feature-desc">资金流透明可视，风险实时预警</p>
+                    <ul>
+                        <li><span class="bullet"></span>电子发票+权益钱包+智能分账一体化</li>
+                        <li><span class="bullet"></span>多级账户体系，支持子公司独立核算</li>
+                        <li><span class="bullet"></span>资金流水自动对账，异常交易秒级告警</li>
+                    </ul>
+                </div>
+
+                <!-- 右栏：安全合规保障 - 盾牌+区块链符号 -->
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 几何背景 -->
+                            <rect x="10" y="10" width="60" height="60" rx="12" fill="#EFF6FF" stroke="#8B5CF6" stroke-width="1"/>
+                            <!-- 盾牌 -->
+                            <path d="M40 18 L26 27 L26 42 C26 51 32 58 40 62 C48 58 54 51 54 42 L54 27 Z" fill="#3B82F6" fill-opacity="0.15" stroke="#3B82F6" stroke-width="2"/>
+                            <!-- 盾牌内层 -->
+                            <path d="M40 24 L31 30 L31 41 C31 47 34 53 40 56 C46 53 49 47 49 41 L49 30 Z" fill="#3B82F6" fill-opacity="0.3"/>
+                            <!-- 锁定模块 -->
+                            <rect x="35" y="34" width="10" height="10" rx="2" fill="#3B82F6"/>
+                            <rect x="37" y="36" width="6" height="6" rx="1" fill="white"/>
+                            <!-- 连接线 -->
+                            <line x1="28" y1="39" x2="35" y2="39" stroke="#06B6D4" stroke-width="2"/>
+                            <line x1="45" y1="39" x2="52" y2="39" stroke="#06B6D4" stroke-width="2"/>
+                            <circle cx="26" cy="39" r="3" fill="#06B6D4"/>
+                            <circle cx="54" cy="39" r="3" fill="#06B6D4"/>
+                            <!-- 顶部锁 -->
+                            <rect x="37" y="27" width="6" height="5" rx="1" fill="#8B5CF6"/>
+                            <path d="M38.5 27 L38.5 25.5 C38.5 24 39.3 23 40 23 C40.7 23 41.5 24 41.5 25.5 L41.5 27" stroke="#8B5CF6" stroke-width="1.5" fill="none"/>
+                            <!-- 底部装饰 -->
+                            <line x1="32" y1="54" x2="48" y2="54" stroke="#3B82F6" stroke-width="1" opacity="0.5"/>
+                            <circle cx="36" cy="54" r="1.5" fill="#06B6D4"/>
+                            <circle cx="40" cy="54" r="1.5" fill="#06B6D4"/>
+                            <circle cx="44" cy="54" r="1.5" fill="#06B6D4"/>
+                            <!-- 粒子 -->
+                            <circle cx="18" cy="18" r="2" fill="#8B5CF6" opacity="0.4"/>
+                            <circle cx="62" cy="18" r="2" fill="#8B5CF6" opacity="0.4"/>
+                            <circle cx="18" cy="62" r="2" fill="#3B82F6" opacity="0.4"/>
+                            <circle cx="62" cy="62" r="2" fill="#3B82F6" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3>安全合规保障</h3>
+                    <p class="feature-desc">金融级安全架构，通过ISO27001认证</p>
+                    <ul>
+                        <li><span class="bullet"></span>20年上市企业技术沉淀</li>
+                        <li><span class="bullet"></span>数据加密传输 + 双因子认证</li>
+                        <li><span class="bullet"></span>符合《非银行支付机构条例》监管要求</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Case Study Section -->
+            <section class="case-study-section">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <h2>成功案例</h2>
+                <p class="subtitle">见证企业数字化转型的成功实践</p>
+
+                <div class="case-studies-grid">
+                    <!-- 案例卡片 1 -->
+                    <div class="case-card">
+                        <h3>零售连锁店</h3>
+                        <p class="case-subtitle">全国500+门店统一收银系统</p>
+                        <div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);"></span>
+                                统一收银系统，支持多种支付方式
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);"></span>
+                                实时数据同步，总部统一管理
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);"></span>
+                                财务报表自动化生成
+                            </div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-title" style="color: #3b82f6;">显著提升</div>
+                            <div class="case-result-desc">运营效率提升60%，管理成本降低40%</div>
+                        </div>
+                    </div>
+
+                    <!-- 案例卡片 2 -->
+                    <div class="case-card" style="border-color: rgba(16, 185, 129, 0.2);">
+                        <h3>电商平台</h3>
+                        <p class="case-subtitle">跨境电商支付解决方案</p>
+                        <div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #10b981, #34d399);"></span>
+                                支持20+国际支付渠道
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #10b981, #34d399);"></span>
+                                多币种结算，汇率实时更新
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #10b981, #34d399);"></span>
+                                防欺诈系统保障交易安全
+                            </div>
+                        </div>
+                        <div class="case-result" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+                            <div class="case-result-title" style="color: #10b981;">业务增长</div>
+                            <div class="case-result-desc">海外订单增长150%，支付成功率提升至99.8%</div>
+                        </div>
+                    </div>
+
+                    <!-- 案例卡片 3 -->
+                    <div class="case-card" style="border-color: rgba(147, 51, 234, 0.2);">
+                        <h3>服务企业</h3>
+                        <p class="case-subtitle">SaaS平台资金管理系统</p>
+                        <div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></span>
+                                自动化分账系统
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></span>
+                                多商户资金池管理
+                            </div>
+                            <div class="case-point">
+                                <span class="case-point-dot" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></span>
+                                合规审计报告自动生成
+                            </div>
+                        </div>
+                        <div class="case-result" style="background: rgba(147, 51, 234, 0.1); border-color: rgba(147, 51, 234, 0.3);">
+                            <div class="case-result-title" style="color: #8b5cf6;">效率提升</div>
+                            <div class="case-result-desc">财务处理效率提升80%，人工成本节省50%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 客户评价区域 -->
+                <div class="testimonial-section">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                        <div class="testimonial-item">
+                            <div class="testimonial-number" style="color: #3b82f6;">500+</div>
+                            <div class="testimonial-label">服务企业数量</div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-number" style="color: #10b981;">99.9%</div>
+                            <div class="testimonial-label">系统稳定性</div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-number" style="color: #f59e0b;">24/7</div>
+                            <div class="testimonial-label">技术支持</div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-number" style="color: #ef4444;">10年+</div>
+                            <div class="testimonial-label">行业经验</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fourth Screen: Data Empowerment Section -->
+            <section class="data-empowerment-section">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="data-empowerment-inner">
+                    <!-- Title Area -->
+                    <div class="data-title-row">
+                        <div class="data-title-lakala">
+                            拉卡拉
+                            <div class="data-title-underline"></div>
+                        </div>
+                        <div class="data-title-divider"></div>
+                        <div class="data-title-sub">
+                            Data-Driven Finance
+                            <div class="data-title-sub-underline"></div>
+                        </div>
+                    </div>
+
+                    <!-- Core Title -->
+                    <div class="data-core-title">
+                        <h2>数据赋能金融</h2>
+                        <p>以可信数据流为纽带，贯通产业与金融，释放每一份经营价值</p>
+                    </div>
+
+                    <!-- Main Visual: Data Flow Canvas -->
+                    <div class="data-flow-canvas">
+                        <!-- Left: Industry Channel -->
+                        <div class="industry-channel">
+                            <div class="industry-channel-header">
+                                <span class="industry-channel-num">1</span>
+                                <span>产业侧</span>
+                            </div>
+                            <div class="industry-item" style="border-color: #3b82f6;">零售行业</div>
+                            <div class="industry-item" style="border-color: #10b981;">大健康行业</div>
+                            <div class="industry-item" style="border-color: #f59e0b;">汽车行业</div>
+                            <div class="industry-item" style="border-color: #8b5cf6;">文旅行业</div>
+                        </div>
+
+                        <!-- Center: Data Main Channel -->
+                        <div class="data-main-channel">
+                            <!-- Data Flow Path -->
+                            <div class="data-flow-path"></div>
+
+                            <!-- Stage 1: Data Source -->
+                            <div class="stage-node stage-1">
+                                <div class="stage-badge">
+                                    <span class="stage-num">1</span>
+                                    <span class="stage-name">数据源</span>
+                                </div>
+                                <div class="stage-cards">
+                                    <div class="data-card" style="border-color: rgba(96, 165, 250, 0.3);">
+                                        <div>SaaS服务商</div>
+                                        <div>实时交易行为数据</div>
+                                    </div>
+                                    <div class="data-card" style="border-color: rgba(16, 185, 129, 0.3);">
+                                        <div>交易及支付流水</div>
+                                        <div>资金流+订单流融合</div>
+                                    </div>
+                                    <div class="data-card" style="border-color: rgba(147, 51, 234, 0.3);">
+                                        <div>机构合作商</div>
+                                        <div>供应链协同数据</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stage 2: Data Analysis -->
+                            <div class="stage-node stage-2">
+                                <div class="stage-badge">
+                                    <span class="stage-num">2</span>
+                                    <span class="stage-name">数据分析</span>
+                                </div>
+                                <div class="stage-cards">
+                                    <div class="data-card" style="border-color: rgba(96, 165, 250, 0.3);">
+                                        <div>行业驾驶舱</div>
+                                        <div>动态风险画像</div>
+                                    </div>
+                                    <div class="data-card" style="border-color: rgba(16, 185, 129, 0.3);">
+                                        <div>经营BI分析</div>
+                                        <div>现金流预测模型</div>
+                                    </div>
+                                    <div class="data-card" style="border-color: rgba(147, 51, 234, 0.3);">
+                                        <div>分析报告系列</div>
+                                        <div>监管合规自检</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tech Foundation -->
+                            <div class="tech-foundation">
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12.7 5.16-1.96 9-7.15 9-12.7V7l-10-5z" stroke="#60a5fa" stroke-width="2"/>
+                                            <path d="M12 17L9 14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M12 17L15 14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="tech-name">人工智能</div>
+                                    <div class="tech-desc">驱动决策智能化</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12.7 5.16-1.96 9-7.15 9-12.7V7l-10-5z" stroke="#34d399" stroke-width="2"/>
+                                            <path d="M8 12H16" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M12 8V16" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="tech-name">区块链</div>
+                                    <div class="tech-desc">保障数据可信不可篡改</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Institution Outlet -->
+                        <div class="institution-outlet">
+                            <div class="institution-card">
+                                <div class="institution-label">服务对象</div>
+                                <div class="institution-name">金融机构</div>
+                                <div class="institution-desc">（银行 · 消金 · 保理等）</div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                    <!-- Bottom Value Statement -->
+                    <div class="value-statement">
+                        <p>
+                            我们构建的不是数据管道，而是<span>可信的数据价值网络</span>——
+                            从产业经营真实行为出发，通过AI建模与区块链存证，生成可验证、可计量、可交易的金融资产数据，
+                            让每一笔交易都成为信用资本，让每一家企业都能获得与其经营质量匹配的金融服务。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Bottom CTA -->
+            <div class="bottom-cta">
+                <h3>立即获取专业方案</h3>
+                <p>为超100万商户提供数字支付底座 · 已服务30+行业头部客户</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
