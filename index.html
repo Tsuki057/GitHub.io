@@ -3706,5 +3706,64 @@
             </div>
         </div>
     </section>
+    <script>
+        const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/d2dfcbf3-a938-4ba9-b776-9cbc690335b5';
+
+        async function submitForm(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('mainForm');
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '提交中...';
+
+            const data = {
+                姓名: formData.get('name'),
+                电话: formData.get('phone'),
+                公司名称: formData.get('company'),
+                职位: formData.get('position') || '未填写',
+                业务模式: formData.get('businessMode'),
+                支付载体: formData.get('paymentCarrier'),
+                所属行业: formData.get('industry') || '未填写',
+                其他需求: formData.get('requirements') || '无'
+            };
+
+            const message = `📋 **新线索提交**\n\n` +
+                `👤 姓名：${data.姓名}\n` +
+                `📞 电话：${data.电话}\n` +
+                `🏢 公司：${data.公司名称}\n` +
+                `💼 职位：${data.职位}\n` +
+                `🔄 业务模式：${data.业务模式}\n` +
+                `💳 支付载体：${data.支付载体}\n` +
+                `🏭 行业：${data.所属行业}\n` +
+                `📝 需求：${data.其他需求}`;
+
+            try {
+                const response = await fetch(FEISHU_WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        msg_type: 'text',
+                        content: { text: message }
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('formSuccess').style.display = 'block';
+                    form.reset();
+                } else {
+                    alert('提交失败，请稍后重试');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('网络错误，请稍后重试');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '立即获取方案';
+            }
+        }
+    </script>
 </body>
 </html>
